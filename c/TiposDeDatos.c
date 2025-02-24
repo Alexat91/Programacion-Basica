@@ -17,3 +17,5 @@ int main() {
 
     return 0;
 }
+##En c los tipos de datos tienen un nombre difrente por el que los mandas llamar 
+## y en phyton los llamas por su nombre 
