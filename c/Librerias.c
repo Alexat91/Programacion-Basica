@@ -13,4 +13,4 @@ int main() {
 
     return 0;
 }
-##En c se declaran las variables y en c no 
+/*En c se declaran las variables y en c no*/

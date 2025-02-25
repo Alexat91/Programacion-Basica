@@ -16,5 +16,5 @@ int main() {
 
     return 0;
 }
-##En c estas llamando una libreria, declaras el numero como variable 
-## e indicas que que cierre el programa y en Phyton no tienes que hhacer nada de eso 
+/*En c estas llamando una libreria, declaras el numero como variable 
+ e indicas que que cierre el programa y en Phyton no tienes que hhacer nada de eso */

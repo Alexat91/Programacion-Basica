@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int main() {
     // Declaración de diferentes tipos de datos
     int entero = 10;
@@ -15,7 +16,8 @@ int main() {
     printf("Caracter: %c\n", caracter);
     printf("Cadena: %s\n", cadena);
 
+
     return 0;
 }
-##En c los tipos de datos tienen un nombre difrente por el que los mandas llamar 
-## y en phyton los llamas por su nombre 
+/*En c los tipos de datos tienen un nombre difrente por el que los mandas llamar 
+ y en phyton los llamas por su nombre*/

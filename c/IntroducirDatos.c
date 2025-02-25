@@ -16,4 +16,4 @@ int main() {
 
     return 0;
 }
-## En c necesitas declarar las variables y cerrar el programa y en phyton no necesitas eso
+/* En c necesitas declarar las variables y cerrar el programa y en phyton no necesitas eso*/
