@@ -23,3 +23,7 @@ materias.remove("Contabilidad")
 print(materias)
 materias.append("Programacion Avanzada")
 print(materias)
+materias.insert("Programacion Básica")
+print(materias)
+for materia in materias:
+print(materia)
