@@ -1,28 +1,54 @@
 
-# Lista vacía para almacenar los productos
-lista_compras = []
+ # Lista vacía para almacenar los productos
+productos = []
 
-respuesta = input("¿Deseas realizar el mandado? (sí/no): ").lower()
-if respuesta == "si":
-printf("¿Cuantos productos deseas comprar")
-     else:
-printf("Cerrando el programa")
+while True:
+    print("\n📋 LISTA DE COMPRAS📋")
+    print("1. Definir cantidad de productos")
+    print("2. Agregar productos")
+    print("3. Ver productos")
+    print("4. Eliminar productos")
+    print("5. Salir")
 
-print("🛒 Lista de Compras 🛒")
+    opcion = input("¿Qué deseas hacer? ")
 
-# Agregar productos
-producto1 = input("Agrega el primer producto: ")
-lista_compras.append(producto1)
+    if opcion == "1":
+        cantidad = input("📝 Escribe la cantidad de productos: ")
+        if cantidad.isdigit() and 0 < int(cantidad) <= 5:
+            print(f"✅ Puedes proceder con la elaboración de la lista.")
+        else:
+            print("❌ Ingresa un número válido entre 1 y 5.")
 
-producto2 = input("Agrega el segundo producto: ")
-lista_compras.append(producto2)
+    elif opcion == "2":
+        producto = input("📝 Escribe el producto a agregar: ")
+        productos.append(producto)
+        print(f"✅ Producto '{producto}' agregado.")
 
-producto3 = input("Agrega el tercer producto: ")
-lista_compras.append(producto3)
+    elif opcion == "3":
+        if not productos:
+            print("📭 No hay productos en la lista.")
+        else:
+            print("\n📌 Lista de Productos:")
+            for i, producto in enumerate(productos, 1):
+                print(f"{i}. {producto}")
 
-# Mostrar la lista completa
-print("\n📌 Tu lista de compras es:")
-for producto in lista_compras:
-    print(f"- {producto}")
+    elif opcion == "4":
+        if not productos:
+            print("📭 No hay productos para eliminar.")
+        else:
+            try:
+                num = int(input("🗑️ Número del producto a eliminar: ")) - 1
+                if 0 <= num < len(productos):
+                    eliminado = productos.pop(num)
+                    print(f"🗑️ Producto '{eliminado}' eliminado.")
+                else:
+                    print("❌ Número inválido.")
+            except ValueError:
+                print("❌ Ingresa un número válido.")
 
-print("\n✅ ¡Lista creada con éxito!")
+    elif opcion == "5":
+        print("👋 Saliendo del programa. ¡Hasta luego!")
+        break
+
+    else:
+        print("❌ Opción inválida. Intenta de nuevo.")
