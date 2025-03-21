@@ -1,67 +1,52 @@
-import time 
-import random  
-import csv
+import time  # Librería para pausas
+import random  # Librería para generar IDs aleatorios
 
-def guardar_diccionarios_en_csv(nombre_archivo, lista_diccionarios):
-    """Guarda una lista de diccionarios en un archivo CSV."""
-    if not lista_diccionarios:
-        print("La lista de diccionarios está vacía.")
-        return
-
-    # Obtener las claves del primer diccionario como encabezados
-    encabezados = lista_diccionarios[0].keys()
-
-    with open(nombre_archivo, mode='w', newline='', encoding='utf-8') as archivo_csv:
-        escritor = csv.DictWriter(archivo_csv, fieldnames=encabezados)
-        escritor.writeheader()
-        escritor.writerows(lista_diccionarios)
-
-    print(f"Datos guardados en {nombre_archivo} exitosamente.")
-
+# Lista de alumnos (diccionarios con nombre y ID único)
 alumnos = []
+# Diccionario adicional para almacenar calificaciones de los alumnos
 calificaciones = {}
 
-
+# Función para generar un ID aleatorio
 def generar_id():
     return random.randint(1000, 9999)
 
-
+# Menú de opciones
 while True:
     print("\nMenú de opciones:")
-    print("1 Agregar alumno")
-    print("2 Eliminar alumno")
-    print("3 Mostrar lista de alumnos")
-    print("4 Buscar alumno por ID")
-    print("5 Asignar calificación a un alumno")
-    print("6 Mostrar calificaciones")
-    print("7 Salir")
+    print("1. Agregar alumno")
+    print("2. Eliminar alumno")
+    print("3. Mostrar lista de alumnos")
+    print("4. Buscar alumno por ID")
+    print("5. Asignar calificación a un alumno")
+    print("6. Mostrar calificaciones")
+    print("7. Salir")
     
     opcion = input("Seleccione una opción: ")
     
-    if opcion == "1":
+    if opcion == "1":  # Agregar alumno
         nombre = input("Ingrese el nombre del alumno: ")
         id_alumno = generar_id()
         alumnos.append({"id": id_alumno, "nombre": nombre})
-        calificaciones[id_alumno] = []  
+        calificaciones[id_alumno] = []  # Inicializa calificaciones vacías
         print(f"Alumno {nombre} agregado con ID {id_alumno}.")
     
-    elif opcion == "2":  
+    elif opcion == "2":  # Eliminar alumno
         id_buscar = int(input("Ingrese el ID del alumno a eliminar: "))
         for alumno in alumnos:
             if alumno["id"] == id_buscar:
                 alumnos.remove(alumno)
-                del calificaciones[id_buscar]  
+                del calificaciones[id_buscar]  # Eliminar del diccionario de calificaciones
                 print("Alumno eliminado.")
                 break
         else:
             print("ID no encontrado.")
     
-    elif opcion == "3":  
-        print("\nLista de añumnos:")
+    elif opcion == "3":  # Mostrar lista de alumnos
+        print("\nLista de alumnos:")
         for alumno in alumnos:
             print(f"ID: {alumno['id']} - Nombre: {alumno['nombre']}")
     
-    elif opcion == "4":  
+    elif opcion == "4":  # Buscar alumno por ID
         id_buscar = int(input("Ingrese el ID del alumno: "))
         for alumno in alumnos:
             if alumno["id"] == id_buscar:
@@ -70,7 +55,7 @@ while True:
         else:
             print("ID no encontrado.")
     
-    elif opcion == "5":  
+    elif opcion == "5":  # Asignar calificación
         id_buscar = int(input("Ingrese el ID del alumno: "))
         if id_buscar in calificaciones:
             calificacion = float(input("Ingrese la calificación: "))
@@ -79,21 +64,16 @@ while True:
         else:
             print("ID no encontrado.")
     
-    elif opcion == "6":
+    elif opcion == "6":  # Mostrar calificaciones
         print("\nCalificaciones de los alumnos:")
         for alumno in alumnos:
             id_alumno = alumno["id"]
             print(f"ID: {id_alumno} - {alumno['nombre']} - Calificaciones: {calificaciones[id_alumno]}")
     
-    elif opcion == "7": 
-        archivo = "alumnos.csv"
-
-    # Guardar los diccionarios en un archivo CSV
-    guardar_diccionarios_en_csv(archivo, alumnos)
-        print("Saliendo ahora")
+    elif opcion == "7":  # Salir
+        print("Saliendo...")
         break
     
-
     else:
         print("Opción inválida.")
     
