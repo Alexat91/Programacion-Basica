@@ -1,12 +1,13 @@
 import time 
-import random  
-
+import random 
+import os 
+from Archivos import guardar_diccionarios_en_csv, leer_diccionarios_de_csv
 
 alumnos = []
 
 calificaciones = {}
 
-
+archivo = "alumnos.csv"
 def generar_id():
     return random.randint(1000, 9999)
 
@@ -76,5 +77,7 @@ while True:
     
     else:
         print("Opción inválida.")
+
+        guardar_diccionarios_en_csv(alumnos, calificaciones)
     
     time.sleep(1)
