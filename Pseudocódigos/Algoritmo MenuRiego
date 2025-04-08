@@ -1,0 +1,48 @@
+Algoritmo MenuRiego
+    Definir opcion Como Entero
+    Definir humedad Como Real
+
+    Repetir
+        Escribir "---- MENÚ ----"
+        Escribir "1. Medir humedad manualmente"
+        Escribir "2. Generar humedad aleatoria"
+        Escribir "3. Salir"
+        Escribir "Elija una opción:"
+        Leer opcion
+
+        Segun opcion Hacer
+            1:
+                Escribir "Ingrese el valor de humedad (entre 0 y 100):"
+                Leer humedad
+                
+                Mientras humedad < 0 O humedad > 100 Hacer
+                    Escribir "Valor inválido. Por favor, ingrese un valor entre 0 y 100:"
+                    Leer humedad
+                FinMientras
+                
+                Escribir "Humedad actual: ", humedad, "%"
+                Si humedad < 40 Entonces
+                    Escribir "Humedad baja. Activando riego..."
+                Sino
+                    Escribir "Humedad suficiente. No se activa riego."
+                FinSi
+            2:
+                humedad <- Aleatorio(10, 100)
+                Escribir "Humedad actual: ", humedad, "%"
+                Si humedad < 40 Entonces
+                    Escribir "Humedad baja. Activando riego..."
+                Sino
+                    Escribir "Humedad suficiente. No se activa riego."
+                FinSi
+            3:
+                Escribir "Saliendo del programa..."
+            De Otro Modo:
+                Escribir "Opción no válida. Por favor, elija una opción válida."
+        FinSegun
+
+        Escribir "---------------------------"
+
+    Hasta Que opcion = 3
+
+    Escribir "Fin del programa."
+FinAlgoritmo
