@@ -1,0 +1,18 @@
+INICIO
+
+  DEFINIR temperatura
+  DEFINIR umbral_temperatura COMO 60  // valor en °C para activar la alarma
+
+  MIENTRAS (verdadero)
+    LEER temperatura DESDE sensor
+
+    SI (temperatura >= umbral_temperatura)
+      ACTIVAR alarma
+    SINO
+      DESACTIVAR alarma
+    FIN SI
+
+    ESPERAR 1 segundo  // para evitar lecturas  sin pausa
+  FIN MIENTRAS
+
+FIN
