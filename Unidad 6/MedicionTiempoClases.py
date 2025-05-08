@@ -19,11 +19,11 @@ class Timer:
     #Detiene el tiempo y lo reporta
         if self._start_time is None:
             raise TimerError(f"El tiempo no está corriendo. Usa .start() para comenzarlo")
-                                                                                                                elapsed_time = time.perf_counter() - self._start_time
+        elapsed_time = time.perf_counter() - self._start_time
         self._start_time = None
         print(f"Tiempo: {elapsed_time:0.4f} segundos")
 
-    def main():
+def main():
     #Print the latest tutorial from Real Python
     t = Timer()
     t.start()
@@ -34,5 +34,5 @@ class Timer:
 
 
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     main()
