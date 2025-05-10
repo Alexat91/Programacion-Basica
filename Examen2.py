@@ -98,3 +98,8 @@ while True:
         print("Opción inválida.")
     
     time.sleep(1)
+
+
+    fin = time.perf_counter()
+duracion = fin - inicio
+print(f"Tiempo de ejecución: {duracion:.4f} segundos.")

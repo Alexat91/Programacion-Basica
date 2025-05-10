@@ -4,13 +4,14 @@ import os
 from Archivos import guardar_diccionarios_en_csv, leer_diccionarios_de_csv
 
 alumnos = []
-
 calificaciones = {}
-
 archivo = "alumnos.csv"
+
 def generar_id():
     return random.randint(1000, 9999)
 
+# Iniciar temporizador
+inicio = time.perf_counter()
 
 while True:
     print("Menú de opciones:")
@@ -78,19 +79,9 @@ while True:
     else:
         print("Opción inválida.")
 
-        guardar_diccionarios_en_csv(alumnos, calificaciones)
-    
+    guardar_diccionarios_en_csv(alumnos, calificaciones)
     time.sleep(1)
 
-
-def main():
-   
-    tic = time.perf_counter()
-    tutorial = feed.get_article(0)
-    toc = time.perf_counter()
-    print(f"El programa se ejecuto en {toc - tic:0.4f} segundos")
-
-    print(tutorial)
-
-if __name__ == "__main__":
-    main()
+fin = time.perf_counter()
+duracion = fin - inicio
+print(f"\nTiempo total de ejecución: {duracion:.2f} segundos.")

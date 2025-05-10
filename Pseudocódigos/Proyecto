@@ -1,18 +1,30 @@
-INICIO
+import time
+import random
 
-  DEFINIR temperatura
-  DEFINIR umbral_temperatura COMO 60  // valor en °C para activar la alarma
 
-  MIENTRAS (verdadero)
-    LEER temperatura DESDE sensor
+umbral_temperatura = 60
 
-    SI (temperatura >= umbral_temperatura)
-      ACTIVAR alarma
-    SINO
-      DESACTIVAR alarma
-    FIN SI
+def leer_temperatura():
 
-    ESPERAR 1 segundo  // para evitar lecturas  sin pausa
-  FIN MIENTRAS
+    return random.uniform(30, 80)  
 
-FIN
+def activar_alarma():
+    print("¡ALARMA ACTIVADA! Temperatura alta.")
+
+def desactivar_alarma():
+    print("Alarma desactivada. Temperatura normal.")
+
+
+inicio = time.perf_counter()
+
+temperatura = leer_temperatura()
+print(f"Temperatura actual: {temperatura:.2f} °C")
+
+if temperatura >= umbral_temperatura:
+    activar_alarma()
+else:
+    desactivar_alarma()
+
+fin = time.perf_counter()
+duracion = fin - inicio
+print(f"Tiempo de ejecución: {duracion:.4f} segundos.")
