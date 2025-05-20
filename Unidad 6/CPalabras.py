@@ -9,4 +9,4 @@ texto_usuario = input("Escribe una frase o texto: ")
 
 cantidad_palabras = contar_palabras(texto_usuario)
 
-print(f"El texto contiene {cantidad_palabras} palabras.")
+print(f" El nommbre del programa es {nombre_programa} y el texto contiene {cantidad_palabras} palabras.")
